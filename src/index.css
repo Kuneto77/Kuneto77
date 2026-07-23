@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  color: #fbf3e6;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #51000b;
+}
+::-webkit-scrollbar-thumb {
+  background: #e7c27d;
+  border-radius: 4px;
+}
+
+.nav-wrap {
+  position: relative;
+  width: min(95.75vw, 916px);
+  filter: drop-shadow(0 10px 14px rgba(20, 0, 5, 0.45));
+  animation: navDrop 0.75s cubic-bezier(0.18, 0.82, 0.24, 1) both;
+}
+.nav-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+@keyframes navDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+@media (max-width: 700px) {
+  .nav-wrap {
+    transform: scale(0.85);
+    transform-origin: center right;
+  }
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
