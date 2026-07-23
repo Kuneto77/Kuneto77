@@ -3,10 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "oxlint",
+    "postbuild": "node scripts/postbuild-vercel.mjs",
+    "build:vercel": "DEPLOY_TARGET=vercel npm run build",
+    "lint": "oxlint src",
     "preview": "vite preview"
   },
   "dependencies": {
