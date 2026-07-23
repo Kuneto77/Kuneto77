@@ -6,11 +6,11 @@
   "outputDirectory": "dist",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "env": {
-    "VITE_SUPABASE_URL": "https://placeholder.supabase.co",
-    "VITE_SUPABASE_PUBLISHABLE_KEY": "placeholder-publishable-key",
-    "VITE_SUPABASE_PROJECT_ID": "placeholder-project-id",
-    "SUPABASE_URL": "https://placeholder.supabase.co",
-    "SUPABASE_PUBLISHABLE_KEY": "placeholder-publishable-key",
-    "SUPABASE_SERVICE_ROLE_KEY": "placeholder-service-role-key"
+    "VITE_SUPABASE_URL": "https://qcfqtnomldzbnzzxypgg.supabase.co",
+    "VITE_SUPABASE_PUBLISHABLE_KEY": "sb_publishable_CU66IIHoJQ6V3jkMtjwLGg_n098k-Q2",
+    "VITE_SUPABASE_PROJECT_ID": "qcfqtnomldzbnzzxypgg",
+    "SUPABASE_URL": "https://qcfqtnomldzbnzzxypgg.supabase.co",
+    "SUPABASE_PUBLISHABLE_KEY": "sb_publishable_CU66IIHoJQ6V3jkMtjwLGg_n098k-Q2",
+    "SUPABASE_JWKS_URL": "https://qcfqtnomldzbnzzxypgg.supabase.co/auth/v1/.well-known/jwks.json"
   }
 }
