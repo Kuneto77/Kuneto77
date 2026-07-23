@@ -47,3 +47,7 @@ npm run preview
 ```bash
 npm run lint
 ```
+
+## Environment variables
+
+Този проект е чисто статичен frontend — не прави заявки към бекенд, Supabase или друг API, затова **не изисква никакви `.env` файлове или environment variables** (нито локално, нито във Vercel). Всички изображения се зареждат директно от CDN URL-и в `src/lib/assets.ts`.
