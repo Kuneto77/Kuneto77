@@ -48,20 +48,24 @@ npm run preview
 npm run lint
 ```
 
-## Environment variables
+Всички Supabase променливи са в `.env` (локално, gitignored) и публичните са в `vercel.json` (Vercel deploy).
 
-Публичните Supabase стойности са в `vercel.json` (за Vercel build/deploy). За локална разработка копирай `.env.example` → `.env.local` и попълни стойностите.
-
-| Variable | Описание | Къде |
+| Variable | Описание | Vercel |
 |---|---|---|
-| `VITE_SUPABASE_URL` | Supabase project URL | Client (Vite) |
-| `VITE_SUPABASE_PUBLISHABLE_KEY` | Publishable key (public) | Client (Vite) |
-| `VITE_SUPABASE_PROJECT_ID` | Project ID | Client (Vite) |
-| `SUPABASE_URL` | Supabase project URL | Server |
-| `SUPABASE_PUBLISHABLE_KEY` | Publishable key | Server |
-| `SUPABASE_JWKS_URL` | JWKS endpoint | Server |
-| `SUPABASE_SECRET_KEY` | **Secret key — server-only** | Vercel Dashboard only |
+| `VITE_SUPABASE_URL` | Supabase URL (client) | ✅ vercel.json |
+| `VITE_SUPABASE_PUBLISHABLE_KEY` | Publishable key (client) | ✅ vercel.json |
+| `VITE_SUPABASE_PROJECT_ID` | Project ID (client) | ✅ vercel.json |
+| `SUPABASE_URL` | Supabase URL (server) | ✅ vercel.json |
+| `SUPABASE_PUBLISHABLE_KEY` | Publishable key (server) | ✅ vercel.json |
+| `SUPABASE_JWKS_URL` | JWKS endpoint | ✅ vercel.json |
+| `SUPABASE_SECRET_KEY` | Secret key (server-only) | ⚠️ Vercel Dashboard или `./scripts/setup-vercel-env.sh` |
 
-> **Важно:** `SUPABASE_SECRET_KEY` не се commit-ва в git. Добави го ръчно във Vercel Dashboard → Project Settings → Environment Variables (Production + Preview).
+**Secret key във Vercel:** GitHub блокира secret keys в git. Добави `SUPABASE_SECRET_KEY` във Vercel Dashboard → Environment Variables, или пусни:
 
-> Началната страница все още не прави Supabase заявки — env vars са конфигурирани за бъдеща интеграция и за Vercel project compatibility.
+```bash
+cp .env.example .env   # попълни стойностите
+./scripts/setup-vercel-env.sh imoti-nadezhda
+./scripts/setup-vercel-env.sh kuneto77
+```
+
+Supabase клиентът е свързан в `src/lib/supabase.ts` и се инициализира при старт на приложението.

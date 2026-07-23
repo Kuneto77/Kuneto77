@@ -1,10 +1,16 @@
+import { useEffect } from 'react';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import CityCard from './components/CityCard';
 import ChatButton from './components/ChatButton';
 import { hero, cityBurgas, cityVarna, cityShumen, cityNovPazar } from './lib/assets';
+import { supabase } from './lib/supabase';
 
 function App() {
+  useEffect(() => {
+    void supabase.auth.getSession();
+  }, []);
+
   return (
     <main className="min-h-screen relative font-serif text-[#fbf3e6]">
       <div className="absolute inset-0 w-full h-screen">
